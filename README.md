@@ -94,7 +94,7 @@ mvn spring-boot:run "-Dspring-boot.run.arguments=--server.port=8081"
 (swap in whichever port you like, and use that port in the curl commands
 below instead of 8080).
 
-## Testing it from a terminal (what the interviewer will do)
+## Testing it from a terminal 
 
 **1. Submit a new mortgage application (POST):**
 
