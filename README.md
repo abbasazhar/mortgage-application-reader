@@ -84,6 +84,16 @@ mvn spring-boot:run
 The service starts on **http://localhost:8080**. A `data/` folder is created
 next to wherever you run it from — that's the local storage file.
 
+**Port already in use?** If something else on your machine is already
+listening on 8080, override it without touching any code:
+
+```bash
+mvn spring-boot:run "-Dspring-boot.run.arguments=--server.port=8081"
+```
+
+(swap in whichever port you like, and use that port in the curl commands
+below instead of 8080).
+
 ## Testing it from a terminal (what the interviewer will do)
 
 **1. Submit a new mortgage application (POST):**
@@ -98,6 +108,19 @@ curl -s -X POST http://localhost:8080/api/applications \
         "loanAmount": 240000,
         "propertyValue": 300000
       }' | python3 -m json.tool
+```
+
+On Windows **Command Prompt (cmd.exe)**, use this instead (single line,
+double quotes escaped — cmd doesn't treat `'` as a string delimiter):
+
+```cmd
+curl -X POST http://localhost:8080/api/applications -H "Content-Type: application/json" -d "{\"applicantName\":\"Jordan Smith\",\"email\":\"jordan.smith@example.com\",\"propertyPostcode\":\"SW1A 1AA\",\"loanAmount\":240000,\"propertyValue\":300000}"
+```
+
+On **PowerShell**, use:
+
+```powershell
+curl -Method Post http://localhost:8080/api/applications -ContentType "application/json" -Body '{"applicantName":"Jordan Smith","email":"jordan.smith@example.com","propertyPostcode":"SW1A 1AA","loanAmount":240000,"propertyValue":300000}'
 ```
 
 Expected response (`201 Created`) — note the enriched fields (`region`,
