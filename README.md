@@ -32,7 +32,7 @@ GET /api/applications/{id}     → read the saved case back
 
 | Requirement (from the task)              | How it's implemented |
 |-------------------------------------------|-----------------------|
-| Spring Boot                                | Java 17, Spring Boot 3.3.4, Maven |
+| Spring Boot                                | Java 17+, Spring Boot 3.4.1, Maven |
 | POST endpoint                              | `POST /api/applications` |
 | Use publicly available details             | Calls the free, public [postcodes.io](https://postcodes.io) API to resolve the submitted UK postcode into region / local authority / country / coordinates — the kind of lookup a mortgage brokerage does when placing a case with a lender |
 | Local storage                              | `FileBackedApplicationRepository` persists to `./data/applications.json` on the local filesystem (with an in-memory cache), so no database setup is required and data survives a restart |
