@@ -1,0 +1,19 @@
+target/
+*.class
+
+# local storage data files (generated at runtime, not part of the source)
+data/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS
+.DS_Store
+
+# logs
+*.log
